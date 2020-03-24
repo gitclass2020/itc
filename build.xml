@@ -1,0 +1,39 @@
+<project name="gitant" basedir="." default="main">
+
+<property name="src_dir" value="src/main/java"/>
+<property name="test_dir" value="test/main/java"/>
+<property name="dest_dir" value="target/build"/>
+<property name="class_dir" value="target/classes"/>
+
+<target name="clean" description="to clean the directory">
+<echo message="to clean the directories"/>
+<delete dir="${class_dir}"/>
+<delete dir="${dest_dir}"/>
+</target>
+
+
+<target name="create" description="to create a directory">
+<echo message="to create a directories"/>
+<mkdir dir="${class_dir}"/>
+<mkdir dir="${dest_dir}"/>
+</target>
+
+<target name="compile" description="to complile the code">
+<echo>compiling the source code</echo>
+<javac srcdir="${src_dir}" destdir="${class_dir}" includeantruntime="false" />
+</target>
+
+<target name="package" description="creating a package of the code">
+<echo>packing the classes</echo>
+<zip destfile="${dest_dir}/${ant.project.name}.zip" basedir="${class_dir}"/>
+<jar destfile="${dest_dir}/${ant.project.name}.jar" basedir="${class_dir}"/>
+</target>
+
+
+<target name="main" depends="clean, create, compile, package">
+<echo message="calling all the targets"/>
+</target>
+
+
+
+</project>
