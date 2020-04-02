@@ -6,6 +6,7 @@
 <property name="class_dir" value="target/classes"/>
 <property name="report_dir" value="target/reports"/>
 
+
 <path id="classpath">
     <pathelement location="E:\apache-ant-1.10.7\lib\junit.jar"/>
 </path>
@@ -15,6 +16,7 @@
 <echo message="to clean the directories"/>
 <delete dir="${class_dir}"/>
 <delete dir="${dest_dir}"/>
+<delete dir="${report_dir}"/>
 </target>
 
 
@@ -37,14 +39,35 @@
 </target>
 
 <target name="test" description="this is used to test the cases">
-<junit>
+<junit haltonerror="false" haltonfailure="no" printsummary="yes">
 <classpath refid="classpath"/>
-<formatter type="xml" usefile="false"/>
-<test name="${test_dir}" haltonfailure="no" todir="${report_dir}"/>
+<formatter type="xml" usefile="true"/>
+<!--<formatter type="brief" usefile="false"/> -->
+<test name="${test_dir}" haltonfailure="no" todir="${report_dir}" outfile="result"/>
 </junit>
-
 </target>
 
+<!--<target name="test-reports" depends="test">
+        <junitreport todir="F:\gitrepos\itc\target\reports">
+            <fileset dir="F:\gitrepos\itc\target\reports">
+                <include name="reports.xml" />
+            </fileset>
+            <report format="xml" todir="${report_dir}"/>
+        </junitreport>
+    </target>
+	
+	
+	
+<target name="report">
+		<mkdir dir="target/reports"/>
+        <junitreport todir="target/reports">
+            <fileset dir="${report_dir}">
+                <include name="TEST.xml"/>
+            </fileset>
+             <report format="frames" todir="target/reports"/>
+        </junitreport>
+    </target>	
+	-->
 <target name="main" depends="clean, create, compile, package, test">
 <echo message="calling all the targets"/>
 </target>
