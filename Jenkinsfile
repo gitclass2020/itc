@@ -1,6 +1,8 @@
 pipeline{
 agent {node {label 'S1'}}
 
+properties([parameters([choice(choices: ['checkout', 'invokeant'], description: 'Which stage you want to run', name: 'Stages')])])
+
 stages{
 	stage(checkout){
 	steps{
@@ -16,10 +18,14 @@ stages{
 		     buildFile('build.xml')
 			 antInstallation('Ant 1.10')
 		
-
+    
  
  }
  }
-}
+
+ 
+ 
+ }
+
  }
  
