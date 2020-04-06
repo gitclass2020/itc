@@ -8,5 +8,15 @@ stages{
 	}
 
 	}
+ 
+	stage(invokeant){
+	steps{
+	withAnt(installation: 'ant1.10') {
+     sh '$ANT_HOME/bin/ant main'
+}
+ 
+ 
  }
 }
+ }
+ }
