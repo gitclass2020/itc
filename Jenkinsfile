@@ -11,11 +11,14 @@ stages{
  
 	stage(invokeant){
 	steps{
-	withAnt(installation: 'ant1.10') {
-     bat '%ANT_HOME%/bin/ant.bat main'
+		ant {
+			 target('main')
+		     buildFile('build.xml')
+			 antInstallation('Ant 1.10')
+		
 }
  
- 
+ }
  }
 }
  }
