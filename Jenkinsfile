@@ -11,12 +11,12 @@ stages{
  
 	stage(invokeant){
 	steps{
-		ant {
+		
 			 target('main')
 		     buildFile('build.xml')
 			 antInstallation('Ant 1.10')
 		
-}
+
  
  }
  }
