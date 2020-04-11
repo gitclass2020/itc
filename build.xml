@@ -4,7 +4,7 @@
 <property name="test_dir" value="test/main/java"/>
 <property name="dest_dir" value="target/build"/>
 <property name="class_dir" value="target/classes"/>
-<property name="report_dir" value="target/reports"/>
+<property name="report_dir" value="target/surefire-reports"/>
 
 
 <path id="classpath">
