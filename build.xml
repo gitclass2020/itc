@@ -43,7 +43,7 @@
 <classpath refid="classpath"/>
 <formatter type="xml" usefile="true"/>
 <!--<formatter type="brief" usefile="false"/> -->
-<test name="${test_dir}" haltonfailure="no" todir="${report_dir}" outfile="result"/>
+<test name="${test_dir}" haltonfailure="no" todir="${report_dir}" outfile="TEST-HelloWorldTest"/>
 </junit>
 </target>
 
